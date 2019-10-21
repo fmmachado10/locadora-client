@@ -1,0 +1,46 @@
+<div class="container">
+<form>
+    <div class="card-header">
+        <div class="row">
+            <div class="col-8">
+                Marcas
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary" (click)="adicionar()">Adicionar</button> | 
+                <button type="button" class="btn btn-warning" (click)="alterar()">Alterar</button> | 
+                <button type="button" class="btn btn-danger" (click)="excluir()">Excluir</button>
+            </div>
+        </div>    
+    </div>
+    <div class="alert alert-primary" role="alert">
+        {{mens}}
+    </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCodigo">Código</label>
+                    <input type="number" class="form-control" name="inputCodigo" [(ngModel)]="obj.id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputNome">Nome</label>
+                    <input type="text" class="form-control" name="inputNome" [(ngModel)]="obj.nome">
+                </div>
+            </div>
+        
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <th scope="col"> Código </th>
+                    <th scope="col"> Nome </th>
+                    <th scope="col"> ... </th>
+                    <tr *ngFor="let f of lista">
+                        <td>{{f.id}}</td>
+                        <td>{{f.nome}}</td>
+                        <td><button type="button" class="btn btn-secondary" (click)="carregarDados(f)">Carregar</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
